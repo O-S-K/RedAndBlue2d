@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 65e3b589b4e541cf9e4bbc6f86d24dd0
+timeCreated: 1672865251
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: "Orbitron Black"
+  fontNames:
+  - Orbitron
+  fallbackFontReferences: []
+  customCharacters:
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData:
+  assetBundleName: 
+  assetBundleVariant: 
