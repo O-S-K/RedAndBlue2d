@@ -8,18 +8,18 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] LevelManager levelManager;
     [SerializeField] PlayerManager playerManager;
     public int countCoin = 0;
-    public bool isSelectLV = false;
     public void StartGame()
     {
         countCoin = 0;
-        if (isSelectLV)
+        int i = GameRes.LevelSelectMode;
+        if (GameRes.IsSelectLV == 1)
         {
             StartGameLV(GameRes.LevelSelectMode);
         }
         else
         {
             AudioManager.Instance.PlayMusic("jungletheme");
-            isSelectLV = false;
+            GameRes.IsSelectLV = 0;
             gameState = GameState.Playing;
             levelManager.Initialized(GameRes.Level);
 
@@ -38,7 +38,7 @@ public class GameManager : Singleton<GameManager>
         countCoin = 0;
         AudioManager.Instance.PlayMusic("jungletheme");
         GameRes.LevelSelectMode = level;
-        isSelectLV = true;
+        GameRes.IsSelectLV = 1;
         gameState = GameState.Playing;
         levelManager.Initialized(GameRes.LevelSelectMode);
         var posRed = levelManager.currenMap.posStartRed.position;

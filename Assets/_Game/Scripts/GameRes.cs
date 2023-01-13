@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class GameRes
 {
-
+    public static int IsSelectLV
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("IsSelectLV", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("IsSelectLV", value);
+        }
+    }
     public static int LevelSelectMode
     {
         get
@@ -27,7 +37,7 @@ public class GameRes
             PlayerPrefs.SetInt("Level", value);
         }
     }
-        public static int SoundSetting
+    public static int SoundSetting
     {
         get
         {

@@ -29,7 +29,7 @@ public class PlayerManager : Singleton<PlayerManager>
     public void Onwin()
     {
         GameManager.Instance.ChangeStateGame(GameState.GameOver);
-        if (GameManager.Instance.isSelectLV)
+        if (GameRes.IsSelectLV == 1)
         {
             // GameManager.Instance.SetLV(1);
             if (GameRes.LevelSelectMode < 10)

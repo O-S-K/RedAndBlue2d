@@ -134,7 +134,7 @@ public class ContinuePanelUI : MonoBehaviour
     private void OnHome()
     {
         GameManager.Instance.ClearLV();
-        GameManager.Instance.isSelectLV = false;
+        GameRes.IsSelectLV = 0;
 
        anim.CrossFadeInFixedTime("settings_close",0.1f);
 

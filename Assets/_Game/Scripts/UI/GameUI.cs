@@ -40,8 +40,16 @@ public class GameUI : MonoBehaviour
     }
     private void OnEnable()
     {
-        int lv = GameManager.Instance.isSelectLV == true ? GameRes.LevelSelectMode : GameRes.Level;
-        txtLevel.text = "Level " + lv.ToString();
+        if (GameRes.IsSelectLV == 1)
+        {
+            txtLevel.text = "Level " + GameRes.LevelSelectMode.ToString();
+
+        }
+        else
+        {
+            txtLevel.text = "Level " + GameRes.Level.ToString();
+        }
+
     }
     public void SetHeart()
     {

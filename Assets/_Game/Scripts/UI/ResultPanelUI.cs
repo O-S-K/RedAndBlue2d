@@ -7,6 +7,11 @@ using UnityEngine.UI;
 using TMPro;
 public class ResultPanelUI : MonoBehaviour
 {
+
+    [SerializeField] int lvCurrent;
+    [SerializeField] int LevelFinish;
+
+
     [SerializeField] TextMeshProUGUI _txtCoin;
     [SerializeField] TextMeshProUGUI _txtHeart;
     [SerializeField] GameObject root;
@@ -42,17 +47,22 @@ public class ResultPanelUI : MonoBehaviour
         idCharacter = GameRes.IDSkin;
         Debug.Log("OnEnable = " + idCharacter);
         int lv ;
-        if(GameManager.Instance.isSelectLV)
+        if(GameRes.IsSelectLV ==1)
         {
             lv = GameRes.LevelSelectMode;
+            Debug.Log("IsSelectLV");
         }
         else
         {
             lv = GameRes.Level;
+            Debug.Log("!IsSelectLV");
+
         }
          int lvPre = lv - 1;
         txtLevel.text = "LEVEL " + lv.ToString();
         txtLevelFinish.text = "LEVEL " + lvPre.ToString();
+        lvCurrent = lv;
+        LevelFinish = lvPre;
         SetSkinCharacter(red, idCharacter, true);
         SetSkinCharacter(blue, idCharacter, false);
     }
@@ -67,8 +77,8 @@ public class ResultPanelUI : MonoBehaviour
 
     private void OnHome()
     {
-        root.SetActive(false);
-        GameManager.Instance.isSelectLV = false;
+        gameObject.SetActive(false);
+        GameRes.IsSelectLV = 0;
          UI_Manager.Instance.menuUI.gameObject.SetActive(true);
         UI_Manager.Instance.menuUI.ShowMenu();
 
@@ -76,20 +86,20 @@ public class ResultPanelUI : MonoBehaviour
 
     private void OnSprinBoard()
     {
-        root.SetActive(false);
+        gameObject.SetActive(false);
         UI_Manager.Instance.menuUI.OnSprinBoard();
 
     }
     private void OnShop()
     {
-        root.SetActive(false);
+        gameObject.SetActive(false);
         UI_Manager.Instance.menuUI.OnShop();
 
     }
 
     private void OnSkin()
     {
-        root.SetActive(false);
+        gameObject.SetActive(false);
         UI_Manager.Instance.menuUI.OnSkin();
 
     }
